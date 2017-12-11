@@ -1,0 +1,10 @@
+name             'xylophone'
+maintainer       'Chris Horton'
+maintainer_email 'hortoncd@gmail.com'
+license          'Apache 2.0'
+description      'Installs/Configures xylophone website'
+long_description 'Installs/Configures xylophone website'
+version          '0.1.0'
+
+depends 'apt'
+depends 'nginx', '~> 7.0.0'

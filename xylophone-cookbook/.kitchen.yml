@@ -1,0 +1,37 @@
+---
+driver:
+  name: vagrant
+  <%= "http_proxy: http://#{ENV['LOCALPROXY']}" if ENV['LOCALPROXY'] %>
+  <%= "https_proxy: http://#{ENV['LOCALPROXY']}" if ENV['LOCALPROXY'] %>
+driver_config:
+  require_chef_omnibus: true
+
+#provisioner:
+#  name: chef_zero
+
+# Uncomment the following verifier to leverage Inspec instead of Busser (the
+# default verifier)
+# verifier:
+#   name: inspec
+
+platforms:
+- name: ubuntu-16.04
+  driver_config:
+    box: opscode-ubuntu-16.04
+    box_url: https://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-16.04_chef-provisionerless.box
+  run_list:
+  - recipe[apt]
+- name: ubuntu-14.04
+  driver_config:
+    box: opscode-ubuntu-14.04
+    box_url: https://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-14.04_chef-provisionerless.box
+  run_list:
+
+suites:
+- name: default
+  run_list:
+  - recipe[xylophone]
+  attributes: {
+    "xylophone": {
+    }
+  }

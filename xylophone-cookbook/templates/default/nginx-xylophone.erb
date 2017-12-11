@@ -1,0 +1,11 @@
+server {
+  listen   80;
+  server_name  <%= node['xylophone']['nginx']['server_name'] %>;
+
+  access_log  <%= node['xylophone']['nginx']['log'] %>;
+
+  location / {
+    root   <%= node['xylophone']['nginx']['root'] %>;
+    index  index.html index.htm;
+  }
+}

@@ -1,0 +1,30 @@
+*~
+*#
+.#*
+\#*#
+.*.sw[a-z]
+*.un~
+pkg/
+
+# Berkshelf
+.vagrant
+/cookbooks
+Berksfile.lock
+
+# Bundler
+Gemfile.lock
+bin/*
+.bundle/*
+
+# Not vendoring anything we need to commit
+vendor/
+
+# Test Kitchen
+.kitchen/
+
+# Terraform
+terraform/.terraform/
+terraform/tfplan
+
+# override env vars
+local-env.sh
