@@ -31,8 +31,8 @@ end
 package 'git'
 
 git node['xylophone']['nginx']['root'] do
-  repository node[:xylophone][:git_repository]
-  revision node[:xylophone][:git_revision]
+  repository node['xylophone']['git_repository']
+  revision node['xylophone']['git_revision']
   action :sync
 end
 

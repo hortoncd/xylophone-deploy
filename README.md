@@ -1,5 +1,7 @@
 # xylophone-deploy
 
+[![CircleCI](https://circleci.com/gh/hortoncd/xylophone-deploy.svg?style=svg)](https://circleci.com/gh/hortoncd/xylophone-deploy)
+
 Deploy the xylophone website with Chef/Packer and Terraform
 
 ## Usage

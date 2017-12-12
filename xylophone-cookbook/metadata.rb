@@ -1,10 +1,15 @@
 name             'xylophone'
 maintainer       'Chris Horton'
 maintainer_email 'hortoncd@gmail.com'
-license          'Apache 2.0'
+license          'Apache-2.0'
+source_url       'https://github.com/hortoncd/xylophone-deploy'
+issues_url       'https://github.com/hortoncd/xylophone-deploy/issues'
 description      'Installs/Configures xylophone website'
 long_description 'Installs/Configures xylophone website'
 version          '0.1.0'
+chef_version     '>= 12.0'
+
+supports 'ubuntu'
 
 depends 'apt'
 depends 'nginx', '~> 7.0.0'
