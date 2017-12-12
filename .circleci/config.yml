@@ -1,0 +1,25 @@
+version: 2
+jobs:
+  build:
+    machine:
+      image: circleci/classic:latest
+    steps:
+      - checkout
+      - run:
+          name: Bundle Install
+          command: |
+            cd xylophone-cookbook
+            pwd
+            bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
+      - run:
+          name: Foodcritic
+          command: |
+            cd xylophone-cookbook
+            pwd
+            bundle exec foodcritic .
+      - run:
+          name: Test Kitchen
+          command: |
+            cd xylophone-cookbook
+            pwd
+            bundle exec kitchen test
