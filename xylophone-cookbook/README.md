@@ -22,7 +22,7 @@ Include `xylophone` in your node's `run_list`:
 
 ## Testing
 
-There are unit and integration tests for the included cookbook.
+There are unit and integration tests for the included cookbook.  These use Docker.
 
 ### Unit Tests
 

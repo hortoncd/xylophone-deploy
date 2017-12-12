@@ -1,6 +1,6 @@
 ---
 driver:
-  name: vagrant
+  name: docker
   <%= "http_proxy: http://#{ENV['LOCALPROXY']}" if ENV['LOCALPROXY'] %>
   <%= "https_proxy: http://#{ENV['LOCALPROXY']}" if ENV['LOCALPROXY'] %>
 driver_config:
@@ -16,15 +16,9 @@ driver_config:
 
 platforms:
 - name: ubuntu-16.04
-  driver_config:
-    box: opscode-ubuntu-16.04
-    box_url: https://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-16.04_chef-provisionerless.box
   run_list:
   - recipe[apt]
 - name: ubuntu-14.04
-  driver_config:
-    box: opscode-ubuntu-14.04
-    box_url: https://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-14.04_chef-provisionerless.box
   run_list:
 
 suites:
@@ -32,6 +26,9 @@ suites:
   run_list:
   - recipe[xylophone]
   attributes: {
+    "nginx": {
+      "upstream_repository": "http://nginx.org/packages/ubuntu"
+    },
     "xylophone": {
     }
   }
